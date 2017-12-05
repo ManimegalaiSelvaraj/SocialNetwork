@@ -54,13 +54,69 @@ public class UserDaoImpl  implements UserDao{
 		return false;
 	}
    
-	
-	//@Override
-	public boolean updateOnlineStatus(String status, UserDetail user) {
-			return false;
-	}
+ @Transactional
+public boolean updateuser(UserDetail user)
+{
+try
+{
+Session session=sessionfactory.openSession();
+Transaction transaction=session.getTransaction();
+transaction.begin();
+session.saveOrUpdate(user);
+session.flush();
+transaction.commit();
+session.close();
+System.out.println("updated successfully");
+return true;
+}
+catch(Exception e)
+{
+System.out.println(e);
+return false;    
+}
+}
+@Transactional
+public boolean deleteuser(UserDetail user)
+{
+try
+{
+	Session session=sessionfactory.openSession();
+	Transaction transaction=session.getTransaction();
+	transaction.begin();
+session.delete(user);
+transaction.commit();
+session.close();
+System.out.println("deleted successfully");
+return true;
+}
+catch(Exception e)
+{
+System.out.println(e);
+return false;    
+}
+}
 
-	
+@Transactional
+public boolean updateOnlineStatus(UserDetail user)
+{
+try
+{
+user.setIsOnline(user.getIsOnline());
+Session session=sessionfactory.openSession();
+Transaction transaction=session.getTransaction();
+transaction.begin();
+session.saveOrUpdate(user);
+transaction.commit();
+session.close();
+System.out.println("online status updated");
+return true;
+}
+catch(Exception e)
+{
+   System.out.println(e);
+   return false;    
+}
+}	
 
 	public List<UserDetail> getalluser() {
 		// TODO Auto-generated method stub
@@ -77,6 +133,25 @@ public class UserDaoImpl  implements UserDao{
 		//session.close();
 	    return userdetail;
 	}
-   
+
+	    public UserDetail getuserbyid(int userId) 
+	    {
+	        
+	        Session session=sessionfactory.openSession();
+	        Transaction transaction=session.getTransaction();
+	        transaction.begin();
+	        UserDetail ud=session.get(UserDetail.class,new Integer(userId));
+	        session.flush();
+	        transaction.commit();
+	        session.close();
+	        return ud;
+	         
+	    }
+
+	}
+
 	
-}
+
+
+	
+

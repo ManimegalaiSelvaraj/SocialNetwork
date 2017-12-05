@@ -17,6 +17,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.SocialNetworkBackEnd.Dao.BlogDao;
 import com.SocialNetworkBackEnd.Dao.BlogDaoImpl;
+import com.SocialNetworkBackEnd.Dao.ForumDao;
+import com.SocialNetworkBackEnd.Dao.ForumDaoImpl;
+import com.SocialNetworkBackEnd.Dao.JobDao;
+import com.SocialNetworkBackEnd.Dao.JobDaoImpl;
+//import com.SocialNetworkBackEnd.Dao.ForumDaoImpl;
 //import com.SocialNetworkBackEnd.Dao.BlogDao;
 //import com.SocialNetworkBackEnd.Dao.BlogDaoImpl;
 import com.SocialNetworkBackEnd.Dao.UserDao;
@@ -52,7 +57,7 @@ public class ApplicationContextConfig
 		public Properties getHibernateProperties()
 		{
 			Properties properties=new Properties();
-			properties.setProperty("hibernate.hbm2ddl.auto", "create");
+			properties.setProperty("hibernate.hbm2ddl.auto", "update");
 			properties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
 			return properties;
 		}
@@ -62,7 +67,7 @@ public class ApplicationContextConfig
 		{
 			LocalSessionFactoryBuilder localSessionFactoryBuilder=new LocalSessionFactoryBuilder(getOracleDataSource());
 			localSessionFactoryBuilder.addProperties(getHibernateProperties());
-			localSessionFactoryBuilder.addAnnotatedClass(UserDetail.class);
+		    localSessionFactoryBuilder.scanPackages("com.SocialNetworkBackEnd.Model");
 			//localSessionFactoryBuilder.addAnnotatedClass(Blog.class);
 			System.out.println("SessionFactory Bean Created");
 			//System.out.println("SessionFactory Bean Created");
@@ -88,5 +93,20 @@ public class ApplicationContextConfig
 		{
 			System.out.println("Blog DAO Created");
 			return new BlogDaoImpl(sessionFactory);
+		}
+		
+		@Autowired
+		@Bean(name="forumdao")
+		public ForumDao getForumDAO(SessionFactory sessionFactory)
+		{
+			System.out.println("Forum DAO Created");
+			return new ForumDaoImpl(sessionFactory);
+		}
+		@Autowired
+		@Bean(name="jobdao")
+		public JobDao getJobDAO(SessionFactory sessionFactory)
+		{
+			System.out.println("Job DAO Created");
+			return new JobDaoImpl(sessionFactory);
 		}
 }

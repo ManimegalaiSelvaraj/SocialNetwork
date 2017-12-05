@@ -12,8 +12,13 @@ import com.SocialNetworkBackEnd.Model.UserDetail;
 public interface UserDao {
 
      public boolean addUser(UserDetail user);
-     public boolean updateOnlineStatus(String status,UserDetail user);
+     public boolean updateOnlineStatus(UserDetail user);
 	 //boolean saveUser(User user);
     //public UserDetail getuser(int userId);
-    public List<UserDetail> getalluser(); 
+     public boolean updateuser(UserDetail user);
+
+    public List<UserDetail> getalluser();
+	public UserDetail getuserbyid(int i);
+	public boolean deleteuser(UserDetail ud);
+	//public UserDetail getuserbyid(int i); 
     }

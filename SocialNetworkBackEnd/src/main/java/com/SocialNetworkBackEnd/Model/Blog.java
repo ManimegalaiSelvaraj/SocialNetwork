@@ -8,6 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
+@Component
 @Entity
 @Table
 public class Blog 
@@ -19,7 +22,7 @@ public class Blog
 	
 	String blogName;
 	String blogContent;
-	String username;
+	int userid;
 	String status;
 	int likes;
 	
@@ -55,13 +58,12 @@ public class Blog
 	{
 		this.blogContent = blogContent;
 	}
-	public String getUsername() 
-	{
-		return username;
+	
+	public int getUserid() {
+		return userid;
 	}
-	public void setUsername(String username) 
-	{
-		this.username = username;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	public String getStatus() {
 		return status;
