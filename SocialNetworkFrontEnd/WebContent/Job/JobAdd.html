@@ -1,0 +1,39 @@
+<center>Job Page</center>
+
+<div ng-controller="JobController">
+
+<form id="jobsform" method="post">
+<table align="center" width="80%" border="1">
+	<tr>
+		<td>Job Name</td>
+		<td><input type="text" name="jobName" ng-model="job.jobName"/></td>
+	</tr>
+	<tr>
+		<td>Job Desc</td>
+		<td><textarea cols="30" row="90" name="jobDesc" ng-model="job.jobDesc"></textarea></td>
+	</tr>
+	
+	<tr>
+		<td>Job Qualification</td>
+		<td><input type="text" name="jobQual" ng-model="job.jobQual"/></td>
+	</tr>
+	
+		<tr>
+		<td>Job Profile</td>
+		<td><input type="text" name="jobProfile" ng-model="job.jobProfile"/></td>
+	</tr>
+	
+		<tr>
+		<td>Salary</td>
+		<td><input type="text" name="Salary" ng-model="job.Salary"/></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"><center><input type="submit" value="Add Job" ng-click="addJob()"/></center></td>
+	</tr>
+</table>
+</form>
+</div>
+
+
+

@@ -1,0 +1,38 @@
+<h2><center>ADMIN BLOG</center></h2>
+<div ng-controller="BlogController">
+
+
+<form id="blogform" method="post">
+<table align="center" width="80%" border="1">
+	<tr>
+		<td>Blog Name</td>
+		<td><input type="text" name="blogName" ng-model="blog.blogName"/></td>
+	</tr>
+	<tr>
+		<td>Blog Content</td>
+		<td><textarea cols="30" row="10" name="blogContent" ng-model="blog.blogContent"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="2"><center><input type="submit" value="Add Blog" ng-click="addBlog()"/></center></td>
+	</tr>
+</table>
+</form>
+
+<table width="100%">
+<tr bgcolor="orange"> 
+    <td> Blog ID </td>
+	<td> Blog Name </td>
+	<td> Blog Content </td>
+    <td> Action </td>
+</tr>
+
+<tr bgcolor="cyan" ng-repeat="blog in blogdata">
+    <td>{{blog.blogId}}</td>
+	<td><a href="BlogPage">{{blog.blogName}}</a></td>
+	<td>{{blog.blogContent}}</td>	
+	<td colspan="2"><input value="Delete" type="submit" ng-click="deleteBlog(blog.blogId)"/>
+	<input value="ApproveBlog" type="submit" ng-click=""/>
+	<input value="Edit" type="submit"/></td>
+</tr>
+</table>
+</div>

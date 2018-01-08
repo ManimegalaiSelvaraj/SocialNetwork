@@ -1,0 +1,12 @@
+<div ng-controller="FriendController">
+<form id="blogformid" method"post">
+<table width="100%">
+<tr bgcolor="orange">
+<td>Friend Name</td>
+<td> Status</td>
+</tr>
+<tr bgcolor="Cyan" ng-repeat="friend in allFriendRequest">
+<td>{{friend.friendName}}</td>
+<td ng-show="friend.status=='A'"><input type="submit" value="Reject" ng-click="reject(friend.friendId)"/></td>
+<td ng-show="friend.status=='R'"><input type="submit" value="Approve" ng-click="approve(friend.friendId)"/>
+</td></tr></table></form></div>

@@ -1,0 +1,33 @@
+<center>Forum Page</center>
+
+<div ng-controller="ForumController">
+
+<form id="forumform" method="post">
+<table align="center" width="80%" border="1">
+	<tr>
+		<td>Froum Name</td>
+		<td><input type="text" name="forumName" ng-model="Forum.forumName"/></td>
+	</tr>
+	<tr>
+		<td>Froum Content</td>
+		<td><input type="text" name="forumcontent" ng-model="Forum.forumContent"/></td>
+	</tr>
+	<tr>
+		<td colspan="2"><center><input type="submit" value="Add Forum" ng-click="addForum()"/></center></td>
+	</tr>
+</table>
+</form>
+
+<table width="100%">
+	<tr bgcolor="orange"> 
+		<td> Forum Name </td>
+		<td> Forum Content </td>
+	</tr>
+	<tr bgcolor="cyan" ng-repeat="Forum in forumdata">
+		<td><a href="ForumPage">{{Forum.forumName}}</a></td>
+		<td>{{Forum.forumContent}}</td>	
+	</tr>
+</table>
+
+
+</div>

@@ -1,0 +1,26 @@
+<html>
+<center>Register Page</center>
+
+<div ng-controller="UserController">
+
+<form id="userform" method="post">
+<table align="center" width="80%" border="1">
+	<tr>
+		<td>User Name</td>
+		<td><input type="text" name="userName" ng-model="userDetail.userName"/></td>
+	</tr>
+	<tr>
+		<td>Password</td>
+		<td><input type="password" name="password" ng-model="userDetail.password"></td>
+	</tr>
+	<tr>
+		<td>Email ID</td>
+		<td><textarea cols="30" row="10" name="emailid" ng-model="userDetail.emailId"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="2"><center><input type="submit" value="Add User" ng-click="addUser()"/></center></td>
+	</tr>
+</table>
+</form>
+</div>
+</html>
