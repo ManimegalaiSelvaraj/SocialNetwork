@@ -1,3 +1,8 @@
+<head>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css"/>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script></head>
 <center>Blog Page</center>
 
 <div ng-controller="BlogController">
@@ -18,7 +23,7 @@
 	</tr>
 </table>
 </form>
-<table width="100%">
+<table width="100%" class="table table-striped">
 	<tr bgcolor="orange"> 
 		<td> Blog Name </td>
 		<td> Blog Content </td>
@@ -27,7 +32,7 @@
 	<tr bgcolor="cyan" ng-repeat="blog in blogdata">
 		<td><a href="BlogPage">{{blog.blogName}}</a></td>
 		<td>{{blog.blogContent}}</td>	
-		<td>{{blog.likes}} <input type="submit" value="Like" ng-click=""/></td>	
+		<td>{{blog.likes}} <input type="submit" value="Like" ng-click="like()"/></td>	
 	</tr>
 </table>
 </div>

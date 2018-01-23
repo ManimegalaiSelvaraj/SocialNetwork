@@ -16,7 +16,16 @@ myapp.controller("BlogController",function($scope,$http)
 				console.log('Successful Blog Entered');
 				});
 	}
-	
+	$scope.like=function(blogId)
+	{
+		$http.get('http://localhost:8080/SocialNetworkRestApp/increaselike/'+blogId)
+		.then(getAllBlogs(),function(response){
+		console.log('blog like incremented');
+		
+		});
+
+	}
+
 	$scope.deleteBlog=function(blogId)
 	{
 		//console.log(blogId);

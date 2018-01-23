@@ -32,8 +32,8 @@ myapp.controller("UserController",function($scope,$http,$location,$window,$rootS
 			var currentuser= JSON.parse($window.localStorage.getItem('userDetail'));
 			//console.log(currentuser.role);
 			//console.log(currentuser.status);
-
-			$window.location.href='/SocialNetworkFrontEnd/User/UserHome.html';
+              
+			$window.location.href='/SocialNetworkFrontEnd/Blog/AdminHome.html';
 			
 
 		});

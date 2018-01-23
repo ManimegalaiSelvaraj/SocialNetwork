@@ -33,6 +33,21 @@
 	</tr>
 </table>
 </form>
+<form>
+<table width="100%">
+	<tr bgcolor="orange"> 
+		<td> Job Name </td>
+		<td> Job Desc </td>
+		<td> Salary</td>
+		<td> Apply </td>
+	</tr>
+	<tr bgcolor="cyan" ng-repeat="job in jobdata">
+		<td><a href="JobPage">{{job.jobName}}</a></td>
+		<td>{{job.jobDesc}}</td>	
+		<td>{{job.Salary}}</td><td> <input type="submit" value="Apply" ng-click=""/></td>	
+	</tr>
+</table>
+</form>
 </div>
 
 

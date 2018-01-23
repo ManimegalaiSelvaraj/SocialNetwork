@@ -5,13 +5,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
 	<script src="Route-Config.js"></script>
-	<script src="Blog/BlogController.js"></script>
+	
 	<script src="User/UserController.js"></script>
-	<script src="Forum/ForumController.js"></script>
-	<script src="Job/JobController.js"></script>
+		
 </head>
 
 <body ng-app="myApp">
+<div ng-controller="UserController">
+
 <table width="100%">
 	<tr bgcolor="cyan">
 		<td><h1> <center>Social Collaboration</center></h1></td>
@@ -19,21 +20,21 @@
 	<tr bgcolor="orange">
 		<td>
 				<a href="#/">Home</a>|&nbsp;&nbsp;&nbsp;
-				<a href="#/UserDetail">Register</a>|&nbsp;&nbsp;&nbsp;
-                <a href="#/login">Login</a>|&nbsp;&nbsp;&nbsp;
-				<a href="#/JobAdd">Job</a>|&nbsp;&nbsp;&nbsp;
 				<a href="#/Blog">Blog</a>|&nbsp;&nbsp;&nbsp;
 				<a href="#/Forum">Forum</a>|&nbsp;&nbsp;&nbsp;
-				
+				<a href="#/JobAdd">Job</a>|&nbsp;&nbsp;&nbsp;
+				<a href="#/AdminHome">Admin</a>|&nbsp;&nbsp;&nbsp;
+				 <input type="submit" value="logout" ng-click="logout()"/>
 		</td>
 	</tr>
 	<tr>
 		<td><div><ng-view></ng-view></div></td>
-	
+<div>{{currentuser}}</div>	
 	</tr>
 	<tr>
 		<td><center>Copyright since 2017</center></td>
 	</tr>
 </table>
+</div>
 </body>
 </html>
